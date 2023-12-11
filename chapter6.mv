@@ -1,0 +1,27 @@
+Q1: What are escape characers?
+Ans:Escape characters help in using characters that are otherwise impossible to use in a string by putting it after a '\'.
+Q2:\n is for newline and \t is for tab space.
+Q3: We can put a '\' in a string using escape characters '\\'.
+Q4: Since the string is enclosed in double quotes, the single quotes does not require an escape character.
+Q5: By using triple quotes ''' we can use newline without \n.
+Q6a: e
+  b: Hello
+  c: Hello
+  d: lo, world!
+Q7a: HELLO
+  b: True
+  c: hello 
+Q8a: ['Remember,','remember,','the','fifth','of','November.'] 
+  b: 'There-can-only-be-one.'
+Q9: rjust(), ljust() and center() methods can be used to right-justify, left-justify and center a string.
+Q10: White spaces at the beginning and the end can be trimmed using strip() method.
+
+Table Printer
+```def printTable(lst):
+    for j in lst:
+        for i in range(len(lst[0])):
+            print(j[i].center(max([len(x[i]) for x in lst])),end=' ')
+        print()
+printTable([['apples', 'oranges', 'cherries', 'banana'],
+            ['Alice', 'Bob', 'Carol', 'David'],
+            ['dogs', 'cats', 'moose', 'goose']])```

@@ -1,0 +1,38 @@
+Q1: shutil.copy() copies the file to the destination while shutil.copytree copies the entire folder subfolders and files.
+Q2: move() can be used to rename files.
+Q3: delete() function permanently deletes the file or folder meanwhile send2trash moves the files to the trash/recycle bin ie. the files are recoverable.
+Q4: Zipfile() method is equivalent of the open() method.
+
+PRACTICE PROJECTS
+
+Selectve Copy
+```import shutil,os,re
+from pathlib import Path
+ob=re.compile(r'(\.txt)$')
+for folder,subfolder,files in os.walk(Path.home()/'Desktop'/'containstexts'):
+    for i in files:
+        if ob.search(i)!=None:
+           shutil.copy(Path(folder)/i,Path.home()/'Desktop'/'containscopiedtexts')
+           print('Copied')```
+
+Deleting Unneeded Files
+```import os
+from pathlib import Path
+for folder,subfolder,files in os.walk(Path.home()/'Desktop'):
+    for i in files:
+        if os.path.getsize(folder+'/'+i)>100000000:
+            os.unlink(folder+'/'+i)```
+
+Filling in the Gaps
+```import shutil,re,os
+from pathlib import Path
+pref=input()
+i=1
+lst=sorted(os.listdir(Path("/home/aman/Desktop/textforfills")))
+for files in lst:
+    ob=re.compile(r"{}".format(pref))
+    sp=ob.search(files)
+    if int(sp.group(2))!=i:
+        shutil.move(Path.home()/'Desktop'/'textforfills'/files,Path("/home/aman/Desktop/textforfills"+'/'+sp.group(1)+'0'*(len(sp.group(2))-len(str(i)))+str(i)+'.txt'))
+    i+=1
+print("Found and sorted!!")```
